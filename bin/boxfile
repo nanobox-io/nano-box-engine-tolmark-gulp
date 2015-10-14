@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# -*- mode: bash; tab-width: 2; -*-
+# vim: ts=2 sw=2 ft=bash noet
+
+# $1 = payload JSON
+
+# exit if anything fails
+set -e
+
+payload=$1
+
+# source the common helper functions from NOS
+. /opt/nos/common.sh
+
+# initialize NOS
+nos_init $@
+
+cat <<END
+build:
+  lib_dirs:
+    - node_modules
+    - bower_components
+web1:
+  exec: nginx
+END

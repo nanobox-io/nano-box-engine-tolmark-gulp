@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# -*- mode: bash; tab-width: 2; -*-
+# vim: ts=2 sw=2 ft=bash noet
+
+# $1 = payload JSON
+
+# exit if anything fails
+set -e
+
+payload=$1
+
+# source the common helper functions from NOS
+. /opt/nos/common.sh
+
+# initialize NOS
+nos_init $@
+
+# install node
+install "nodejs-0.12"
+
+# all the rest of our commands will need to be within the code_dir
+cd $(payload 'code_dir')
+
+# npm install
+run_subprocess "npm install" "npm install"
+
+# set our PATH to our node_modules/.bin
+export PATH=$(payload 'code_dir')/node_modules/.bin:$PATH
+persist_evar 'PATH' $(payload 'live_dir')/node_modules/.bin:$PATH
+
+# bower install
+run_subprocess "bower install" "bower install"
+
+# install nginx
+install "nginx"
+
+# generate nginx config
+template \
+  "nginx.conf.mustache" \
+  "$(payload 'build_dir')/etc/nginx/nginx.conf" \
+  $payload
