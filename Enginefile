@@ -1,3 +1,10 @@
-lib_dirs:
-  - node_modules
-  - bower_components
+name: 'tolmark-gulp'
+version: '0.1.0'
+summary: 'Nanobox engine for the tolmark-gulp framework'
+language: 'nodejs'
+stability: 'stable'
+license: 'MPL'
+generic: false
+
+authors:
+  - tolmark@nanobox.io
