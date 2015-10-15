@@ -34,8 +34,8 @@ run_subprocess "bower install" "bower install"
 # install nginx
 install "nginx"
 
-# generate nginx config
-template \
-  "nginx.conf.mustache" \
-  "$(payload 'build_dir')/etc/nginx/nginx.conf" \
-  $payload
+# # generate nginx config
+# template \
+#   "nginx.conf.mustache" \
+#   "$(payload 'build_dir')/etc/nginx/nginx.conf" \
+#   $payload
