@@ -11,10 +11,6 @@ pass "create dir for environment variables" docker exec $UUID mkdir -p /data/etc
 
 pass "Failed to update pkgsrc" docker exec $UUID /data/bin/pkgin up -y
 
-pass "unable to create code folder" docker exec $UUID mkdir -p /opt/code
-
 pass "Failed to copy test project" docker exec $UUID cp -r /opt/tests/sample-tolmark-gulp/ /opt/code
-
-pass "Failed to list files in /opt/code" docker exec $UUID ls /opt/code
 
 pass "Failed to run prepare script" docker exec $UUID bash -c "cd /opt/engines/tolmark-gulp/bin; PATH=/data/sbin:/data/bin:\$PATH ./prepare '$(payload default-prepare)'"

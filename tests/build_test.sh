@@ -9,6 +9,16 @@ pass "Failed to create /opt/code directory" docker exec $UUID mkdir -p /opt/code
 
 pass "Failed to create /code directory" docker exec $UUID mkdir -p /code
 
+pass "create db dir for pkgsrc" docker exec $UUID mkdir -p /data/var/db
+
+pass "create dir for environment variables" docker exec $UUID mkdir -p /data/etc/env.d 
+
+pass "Failed to update pkgsrc" docker exec $UUID /data/bin/pkgin up -y
+
 pass "Failed to copy test project" docker exec $UUID cp -r /opt/tests/sample-tolmark-gulp/ /opt/code
+
+pass "Failed to list files in /opt/code" docker exec $UUID ls /opt/code
+
+pass "Failed to run prepare script" docker exec $UUID bash -c "cd /opt/engines/tolmark-gulp/bin; PATH=/data/sbin:/data/bin:\$PATH ./prepare '$(payload default-prepare)'"
 
 pass "Failed to run build script" docker exec $UUID bash -c "cd /opt/engines/tolmark-gulp/bin; ./build '$(payload default-build)'"
