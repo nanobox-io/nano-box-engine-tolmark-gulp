@@ -9,6 +9,6 @@ pass "Failed to create /opt/code directory" docker exec $UUID mkdir -p /opt/code
 
 pass "Failed to create /code directory" docker exec $UUID mkdir -p /code
 
-pass "Failed to copy test project" docker exec $UUID cp -r /opt/tests/sample-tolmark-gulp/* /opt/code
+pass "Failed to copy test project" docker exec $UUID cp -r /opt/tests/sample-tolmark-gulp/ /opt/code
 
 pass "Failed to run build script" docker exec $UUID bash -c "cd /opt/engines/tolmark-gulp/bin; ./build '$(payload default-build)'"

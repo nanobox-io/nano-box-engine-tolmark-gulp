@@ -9,6 +9,6 @@ pass "unable to create code folder" docker exec $UUID mkdir -p /opt/code
 
 fail "Detected something when there shouldn't be anything" docker exec $UUID bash -c "cd /opt/engines/tolmark-gulp/bin; ./sniff /opt/code"
 
-pass "Failed to copy test project" docker exec $UUID cp -r /opt/tests/sample-tolmark-gulp/* /opt/code
+pass "Failed to copy test project" docker exec $UUID cp -r /opt/tests/sample-tolmark-gulp/ /opt/code
 
 pass "Failed to detect tolmark-gulp" docker exec $UUID bash -c "cd /opt/engines/tolmark-gulp/bin; ./sniff /opt/code"
