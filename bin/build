@@ -16,7 +16,7 @@ payload=$1
 nos_init $@
 
 # set our PATH to our node_modules/.bin
-export PATH=$(payload 'code_dir')/node_modules/.bin:$PATH
+export PATH=$(payload 'code_dir')/node_modules/.bin:/data/sbin:/data/bin:$PATH
 
 # the build commands will need to be within the code_dir
 cd $(payload 'code_dir')

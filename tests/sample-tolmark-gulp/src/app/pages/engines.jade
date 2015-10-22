@@ -1,0 +1,60 @@
+extends templates/base
+
+block js
+  script(type="text/javascript").
+    engines = new nbx.Engines($mainwrapper);
+
+block content
+  .engines
+    h2 Choose a language :
+    .search
+      img.shadow-icon(data-src="temp-search")
+    .languages
+      .language
+        img.shadow-icon(data-src="badge-ruby")
+        .title Ruby
+      .language
+        img.shadow-icon(data-src="badge-nodejs")
+        .title Node.js
+      .language
+        img.shadow-icon(data-src="badge-python")
+        .title Python
+      .language
+        img.shadow-icon(data-src="badge-php")
+        .title PHP
+      .language
+        img.shadow-icon(data-src="badge-scala")
+        .title Scala
+      .language
+        img.shadow-icon(data-src="badge-go")
+        .title GO
+      .language
+        img.shadow-icon(data-src="badge-elixir")
+        .title Elixir
+      .language
+        img.shadow-icon(data-src="badge-java")
+        .title Java
+      .language
+        img.shadow-icon(data-src="badge-erlang")
+        .title Erlang
+      .language
+        img.shadow-icon(data-src="badge-clojure")
+        .title Clojure
+      .language
+        img.shadow-icon(data-src="badge-lua")
+        .title Lua
+      .language
+        img.shadow-icon(data-src="badge-c")
+        .title C / C++
+      .language
+        img.shadow-icon(data-src="badge-rust")
+        .title Rust
+      .language
+        img.shadow-icon(data-src="badge-perl")
+        .title Perl
+      .language
+        img.shadow-icon(data-src="badge-lisp")
+        .title Lisp
+      .language
+        img.shadow-icon(data-src="badge-none")
+        .title Other
