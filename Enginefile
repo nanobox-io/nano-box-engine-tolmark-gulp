@@ -1,6 +1,6 @@
 name: tolmark-gulp
 version: 0.1.0
-summary: 'Nanobox engine for running apps using tolmark's gulp-backed framework.'
+summary: "Nanobox engine for running apps using tolmark's gulp-backed framework."
 language: 'nodejs'
 stability: 'beta'
 license: MPL2
