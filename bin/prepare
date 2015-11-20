@@ -16,27 +16,27 @@ payload=$1
 nos_init $@
 
 # install node
-install "nodejs-0.12"
+nos_install "nodejs-0.12"
 
 # all the rest of our commands will need to be within the code_dir
-cd $(payload 'code_dir')
+cd $(nos_payload 'code_dir')
 
 # npm install
-run_subprocess "npm install" "npm install"
+nos_run_subprocess "npm install" "npm install"
 
 # make sure bower is installed
 run_subprocess "npm install bower" "npm install bower"
 
 # set our PATH to our node_modules/.bin
-export PATH=$(payload 'code_dir')/node_modules/.bin:/data/sbin:/data/bin:$PATH
-persist_evar 'PATH' $(payload 'live_dir')/node_modules/.bin:/data/sbin:/data/bin:$PATH
+export PATH=$(nos_payload 'code_dir')/node_modules/.bin:/data/sbin:/data/bin:$PATH
+persist_evar 'PATH' $(nos_payload 'live_dir')/node_modules/.bin:/data/sbin:/data/bin:$PATH
 
 # bower install
-run_subprocess "bower install" "bower install"
+nos_run_subprocess "bower install" "bower install"
 
-# install nginx
-install "nginx"
-
+# # install nginx
+# install "nginx"
+#
 # # generate nginx config
 # template \
 #   "nginx.conf.mustache" \

@@ -16,14 +16,14 @@ payload=$1
 nos_init $@
 
 # set our PATH to our node_modules/.bin
-export PATH=$(payload 'code_dir')/node_modules/.bin:/data/sbin:/data/bin:$PATH
+export PATH=$(nos_payload 'code_dir')/node_modules/.bin:/data/sbin:/data/bin:$PATH
 
 # the build commands will need to be within the code_dir
-cd $(payload 'code_dir')
+cd $(nos_payload 'code_dir')
 
 # gulp rel
-run_subprocess "generate release" "gulp rel"
+nos_run_subprocess "generate release" "gulp rel"
 
 # rel
-print_bullet "Copying release into live code directory..."
-rsync -a $(payload 'code_dir')/rel/ $(payload 'live_dir')
+nos_print_bullet "Copying release into live code directory..."
+rsync -a $(nos_payload 'code_dir')/rel/ $(nos_payload 'live_dir')
