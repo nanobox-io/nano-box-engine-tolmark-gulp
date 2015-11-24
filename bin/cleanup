@@ -13,6 +13,6 @@ payload=$1
 . /opt/nos/common.sh
 
 # initialize NOS
-nos_init $@
+nos_init "$@"
 
 # nothing to do here... yet
