@@ -134,6 +134,10 @@ persist_npm_bin_to_path() {
     "$(npm_profile_payload)"
 }
 
+force_https() {
+	echo $(nos_validate "$(nos_payload "config_force_https")" "boolean" "false")
+}
+
 # Generate a payload to render the nginx conf
 nginx_conf_payload() {
   cat <<-END
