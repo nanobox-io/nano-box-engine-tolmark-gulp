@@ -17,5 +17,5 @@ code.build:
     - bower_components
     
 web.site:
-  exec: nginx
+  start: nginx
 END
