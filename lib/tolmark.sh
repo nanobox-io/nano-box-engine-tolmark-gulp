@@ -113,7 +113,7 @@ bower_install() {
 # generate gulp release
 generate_rel() {
   cd $(nos_code_dir)
-  nos_run_process "Generating release" "gulp rel"
+  nos_run_process "Generating release" "$(nos_code_dir)/node_modules/.bin/gulp rel"
   cd - > /dev/null
 }
 
