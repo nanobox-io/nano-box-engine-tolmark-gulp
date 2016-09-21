@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # -*- mode: bash; tab-width: 2; -*-
 # vim: ts=2 sw=2 ft=bash noet
 
@@ -14,16 +14,22 @@ nos_init "$@"
 # source common lib
 . ${engine_lib_dir}/tolmark.sh
 
-# install node and nginx
-install_runtime_packages
+# run npm rebuild only if the runtime has changed
+npm_rebuild
 
-# install bower
-install_bower
+# run npm install
+npm_install
 
-# add node_modules/.bin to the PATH
-persist_npm_bin_to_path
+# run npm prune
+npm_prune
 
-# set the node.js runtime in cache
-nodejs_persist_runtime
+# install bower components
+bower_install
+
+# generate gulp release
+generate_rel
+
+# configure nginx
+configure_nginx
 
 exit 0
