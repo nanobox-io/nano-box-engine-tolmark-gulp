@@ -20,7 +20,4 @@ install_runtime_packages
 # add node_modules/.bin to the PATH
 persist_npm_bin_to_path
 
-# set the node.js runtime in cache
-nodejs_persist_runtime
-
 exit 0

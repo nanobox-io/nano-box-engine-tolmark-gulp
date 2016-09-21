@@ -106,7 +106,7 @@ npm_prune() {
 # run bower install
 bower_install() {
   cd $(nos_code_dir)
-  nos_run_process "Installing bower components" "bower install"
+  nos_run_process "Installing bower components" "$(nos_code_dir)/node_modules/.bin/bower --config.analytics=false install"
   cd - > /dev/null
 }
 

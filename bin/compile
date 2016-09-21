@@ -14,14 +14,8 @@ nos_init "$@"
 # source common lib
 . ${engine_lib_dir}/tolmark.sh
 
-# run npm rebuild only if the runtime has changed
-npm_rebuild
-
 # run npm install
 npm_install
-
-# run npm prune
-npm_prune
 
 # install bower components
 bower_install
