@@ -11,11 +11,11 @@ cat <<END
 dev:
   fs_watch: true
   
-build:
+code.build:
   lib_dirs:
     - node_modules
     - bower_components
     
-web1:
+web.site:
   exec: nginx
 END
