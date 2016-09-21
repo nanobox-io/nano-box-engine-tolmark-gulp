@@ -103,13 +103,6 @@ npm_prune() {
   fi
 }
 
-# install bower npm module
-install_bower() {
-  cd $(nos_code_dir)
-  nos_run_process "Installing npm modules" "npm install bower"
-  cd - > /dev/null
-}
-
 # run bower install
 bower_install() {
   cd $(nos_code_dir)
