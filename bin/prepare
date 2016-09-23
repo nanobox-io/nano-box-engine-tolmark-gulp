@@ -20,4 +20,13 @@ install_runtime_packages
 # add node_modules/.bin to the PATH
 persist_npm_bin_to_path
 
+# run npm install
+npm_install
+
+# install bower components
+bower_install
+
+# configure nginx
+configure_nginx
+
 exit 0

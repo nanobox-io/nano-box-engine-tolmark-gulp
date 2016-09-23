@@ -14,16 +14,7 @@ nos_init "$@"
 # source common lib
 . ${engine_lib_dir}/tolmark.sh
 
-# run npm install
-npm_install
-
-# install bower components
-bower_install
-
 # generate gulp release
 generate_rel
-
-# configure nginx
-configure_nginx
 
 exit 0
