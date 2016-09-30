@@ -3,7 +3,7 @@
 # vim: ts=2 sw=2 ft=bash noet
 
 # exit if anything fails
-set -e
+# set -e
 
 # source the Nos framework
 . /opt/nanobox/nos/common.sh
