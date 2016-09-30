@@ -37,14 +37,14 @@ package_json_runtime() {
 
 # Install the node runtime along with any dependencies.
 install_runtime_packages() {
-  pkgs=("nginx" "$(nodejs_runtime)" "python-27")
+  pkgs=("nginx" "$(nodejs_runtime)" "python-2.7")
 
   nos_install ${pkgs[@]}
 }
 
 # Uninstall build dependencies
 uninstall_build_packages() {
-  pkgs=("$(nodejs_runtime)" "python-27")
+  pkgs=("$(nodejs_runtime)" "python-2.7")
 
   nos_uninstall ${pkgs[@]}
 }
