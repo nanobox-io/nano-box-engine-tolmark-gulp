@@ -37,7 +37,7 @@ package_json_runtime() {
 
 # Install the node runtime along with any dependencies.
 install_runtime_packages() {
-  pkgs=("nginx" "$(nodejs_runtime)" "python-2.7")
+  pkgs=("nginx" "python-2.7" "$(nodejs_runtime)")
 
   nos_install ${pkgs[@]}
 }
