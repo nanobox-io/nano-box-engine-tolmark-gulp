@@ -15,6 +15,7 @@ code.build:
   lib_dirs:
     - node_modules
     - bower_components
+    - rel
     
 web.site:
   start: nginx
