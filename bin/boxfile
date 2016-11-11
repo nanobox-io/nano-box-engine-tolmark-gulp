@@ -8,10 +8,8 @@
 set -e
 
 cat <<END
-dev:
-  fs_watch: true
-  
-code.build:
+run.config:
+	fs_watch: true
   lib_dirs:
     - node_modules
     - bower_components
