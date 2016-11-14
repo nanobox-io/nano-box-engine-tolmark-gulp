@@ -10,7 +10,7 @@ set -e
 cat <<END
 run.config:
 	fs_watch: true
-  lib_dirs:
+  cache_dirs:
     - node_modules
     - bower_components
     - server
