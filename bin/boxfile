@@ -9,13 +9,12 @@ set -e
 
 cat <<END
 run.config:
-	fs_watch: true
+  fs_watch: true
   cache_dirs:
     - node_modules
     - bower_components
     - server
     - rel
-    
 web.site:
   start: nginx
 END
