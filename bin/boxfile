@@ -7,6 +7,15 @@
 # exit if anything fails
 set -e
 
+# source the Nos framework
+. /opt/nanobox/nos/common.sh
+
+# initialize Nos with the original arguments
+nos_init "$@"
+
+# source common lib
+. ${engine_lib_dir}/tolmark.sh
+
 cat <<END
 run.config:
   fs_watch: true
@@ -15,6 +24,7 @@ run.config:
     - bower_components
     - server
     - rel
+  extra_path_dirs: $(code_dir)/node_modules/.bin
 web.site:
   start: nginx
 END
