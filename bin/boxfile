@@ -24,7 +24,8 @@ run.config:
     - bower_components
     - server
     - rel
-  extra_path_dirs: $(code_dir)/node_modules/.bin
+  extra_path_dirs: 
+    - /app/node_modules/.bin
 web.site:
   start: nginx
 END
