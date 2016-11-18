@@ -17,9 +17,6 @@ nos_init "$@"
 # install node and nginx
 install_runtime_packages
 
-# add node_modules/.bin to the PATH
-persist_npm_bin_to_path
-
 # run npm install
 npm_install
 
