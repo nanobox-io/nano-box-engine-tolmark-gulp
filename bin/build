@@ -17,8 +17,8 @@ nos_init "$@"
 # install node and nginx
 install_runtime_packages
 
-# run npm install
-npm_install
+# run yarn or npm install
+install_npm_deps
 
 # install bower components
 bower_install
