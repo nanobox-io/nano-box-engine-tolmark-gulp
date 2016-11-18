@@ -25,7 +25,7 @@ run.config:
     - server
     - rel
   extra_path_dirs: 
-    - /app/node_modules/.bin
+    - $(nos_code_dir)/node_modules/.bin
 web.site:
   start: nginx
 END
