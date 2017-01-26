@@ -194,6 +194,7 @@ END
 # Generate an nginx conf
 configure_nginx() {
 	mkdir -p $(nos_data_dir)/var/tmp/nginx/client_body_temp
+  echo "$(nginx_conf_payload)"
   nos_template \
     "nginx/nginx.conf" \
     "$(nos_etc_dir)/nginx/nginx.conf" \
