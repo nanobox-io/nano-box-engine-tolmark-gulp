@@ -149,10 +149,11 @@ error_pages() {
       fi
     done
   fi
-  if [[ -z "error_pages_list[@]" ]]; then
+  if [[ -z "${error_pages_list[@]}" ]]; then
     echo "[]"
   else
-    echo "[ $(nos_join ',' ${error_pages_list[@]}) ]"
+    local IFS=,
+    echo "[ ${error_pages_list[@]} ]"
   fi
 }
 
@@ -171,10 +172,11 @@ rewrites() {
       fi
     done
   fi
-  if [[ -z "rewrites_list[@]" ]]; then
+  if [[ -z "${rewrites_list[@]}" ]]; then
     echo "[]"
   else
-    echo "[ $(nos_join ',' ${rewrites_list[@]}) ]"
+    local IFS=,
+    echo "[ ${rewrites_list[@]} ]"
   fi
 }
 
