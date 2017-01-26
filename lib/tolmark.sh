@@ -152,7 +152,7 @@ error_pages() {
   if [[ -z "error_pages_list[@]" ]]; then
     echo "[]"
   else
-    echo "[ \"$(nos_join '","' ${error_pages_list[@]})\" ]"
+    echo "[ $(nos_join ',' ${error_pages_list[@]}) ]"
   fi
 }
 
@@ -174,7 +174,7 @@ rewrites() {
   if [[ -z "rewrites_list[@]" ]]; then
     echo "[]"
   else
-    echo "[ \"$(nos_join '","' ${rewrites_list[@]})\" ]"
+    echo "[ $(nos_join ',' ${rewrites_list[@]}) ]"
   fi
 }
 
