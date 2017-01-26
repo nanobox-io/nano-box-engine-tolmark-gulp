@@ -165,7 +165,7 @@ rewrites() {
         rewrite_if=PL_config_rewrites_${i}_if_value
         rewrite_then=PL_config_rewrites_${i}_then_value
         if [[ -n ${!rewrite_if} && ${!rewrite_then} ]]; then
-          entry="{\"rewrite_if\":\"${!rewrite_if}\",\"rewrite_then\":\"${!rewrite_then}\"}"
+          entry="{\"if\":\"${!rewrite_if}\",\"then\":\"${!rewrite_then}\"}"
           rewrites_list+=("${entry}")
         fi
       fi
