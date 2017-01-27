@@ -134,13 +134,59 @@ force_https() {
 	echo $(nos_validate "$(nos_payload "config_force_https")" "boolean" "false")
 }
 
+error_pages() {
+  declare -a error_pages_list
+  if [[ "${PL_config_error_pages_type}" = "array" ]]; then
+    for ((i=0; i < PL_config_error_pages_length ; i++)); do
+      type=PL_config_error_pages_${i}_type
+      if [[ ${!type} = "map" ]]; then
+        errors=PL_config_error_pages_${i}_errors_value
+        page=PL_config_error_pages_${i}_page_value
+        if [[ -n ${!errors} && ${!page} ]]; then
+          entry="{\"errors\":\"${!errors}\",\"page\":\"${!page}\"}"
+          error_pages_list+=("${entry}")
+        fi
+      fi
+    done
+  fi
+  if [[ -z "error_pages_list[@]" ]]; then
+    echo "[]"
+  else
+    echo "[ $(nos_join ',' "${error_pages_list[@]}") ]"
+  fi
+}
+
+rewrites() {
+  declare -a rewrites_list
+  if [[ "${PL_config_rewrites_type}" = "array" ]]; then
+    for ((i=0; i < PL_config_rewrites_length ; i++)); do
+      type=PL_config_rewrites_${i}_type
+      if [[ ${!type} = "map" ]]; then
+        rewrite_if=PL_config_rewrites_${i}_if_value
+        rewrite_then=PL_config_rewrites_${i}_then_value
+        if [[ -n ${!rewrite_if} && ${!rewrite_then} ]]; then
+          entry="{\"if\":\"${!rewrite_if}\",\"then\":\"${!rewrite_then}\"}"
+          rewrites_list+=("${entry}")
+        fi
+      fi
+    done
+  fi
+  if [[ -z "rewrites_list[@]" ]]; then
+    echo "[]"
+  else
+    echo "[ $(nos_join ',' "${rewrites_list[@]}") ]"
+  fi
+}
+
 # Generate a payload to render the nginx conf
 nginx_conf_payload() {
   cat <<-END
 {
   "code_dir": "$(nos_code_dir)",
   "data_dir": "$(nos_data_dir)",
-  "force_https": $(force_https)
+  "force_https": $(force_https),
+  "error_pages": $(error_pages),
+  "rewrites": $(rewrites)
 }
 END
 }
